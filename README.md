@@ -4,24 +4,20 @@ Desafio SomoS
 
 Linguagem: <JavaScript>
 
-Framework: <NodeJs, se houver>
+Framework: <NodeJs>
 
 Descrição
 <Informe resumidamente o que é o projeto>
 
 Pré-requisitos
-Antes de iniciar, se assegure que possui os requisitos abaixo:
+Antes de iniciar, se assegure que possui os requisitos abaixo para usar o arquivo request.http:
 
-<Requisito 1>
-<Requisito 2>
-<Requisito 3>
-<Requisito 4>
-<Requisito 5>
+<RESTClient 1>
 
 Compilação/Configuração
-Para compilar/configurar este projeto, siga as seguintes etapas:
+Para compilar/configurar este projeto, siga as seguintes etapas na terminal voce debe carregar esses comandos:
 
-<Etapa 1>
+<npm init 1>
 <Etapa 2>
 <Etapa 3>
 <Etapa 4>
