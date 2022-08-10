@@ -46,4 +46,12 @@ Content-Type: application/json
     "id_card":2
   }
 
+###
+GET http://localhost:3001/game HTTP/1.1
+Content-Type: application/json
+
+{
+  "playerOneCard": 1,
+  "playerTwoCard": 3
+}
 
