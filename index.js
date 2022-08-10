@@ -62,7 +62,7 @@ app.get("/card", (req, res, next) => {
                 res.status(200).json(rows);
             });
 });
-
+ 
 app.put("/card",(req, res, next) => {
     const vacio = undefined;
     db.run(`UPDATE card SET name_card=?, hp=?, attack=?, defense=?, special_attack=?, special_defense=?, speed=? 
