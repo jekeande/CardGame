@@ -48,6 +48,7 @@ app.get("/cards", (req, res, next) => {
 });
 
 app.get("/card", (req, res, next) => {
+    const vacio = undefined;
     db.all(`SELECT * FROM card WHERE id_card=?`,
             [
                 req.body.id_card
@@ -55,14 +56,15 @@ app.get("/card", (req, res, next) => {
                 if (err) {
                     res.status(400).json({ "error": err.message });
                     return;
-                } else if (rows.length > 0){
-                res.status(200).json(rows);
+                } else if (rows = vacio || []){
+                res.status(200).json("Card ID "+ req.body.id_card +" Não existe");
                 } else 
-                res.status(200).json("Card "+ req.body.id_card +" nao existe");
+                res.status(200).json(rows);
             });
 });
 
 app.put("/card",(req, res, next) => {
+    const vacio = undefined;
     db.run(`UPDATE card SET name_card=?, hp=?, attack=?, defense=?, special_attack=?, special_defense=?, speed=? 
             WHERE id_card=?`,
             [
@@ -75,16 +77,19 @@ app.put("/card",(req, res, next) => {
                 req.body.speed,
                 req.body.id_card
             ],
-            function(err, result){
+            function(err, rows){
                 if(err) {
                     res.status(400).json({ "error": err.message })
                     return;
-                }
-                res.status(201).json("Card ID: " + req.body.id_card + " Atualizado")
+                } else if (rows = vacio || []){
+                    res.status(200).json("Card ID " + req.body.id_card + " Não existe")
+                } else
+                    res.status(201).json("Card ID " + req.body.id_card + " Atualizado")
             }) 
 })
 
 app.delete("/card", (req, res, next) => {
+    const vacio = undefined;
     db.all(`DELETE FROM card WHERE id_card=?`, 
             [
                 req.body.id_card
@@ -93,10 +98,10 @@ app.delete("/card", (req, res, next) => {
                 if(err) {
                     res.status(400).json({ "error": err.message })
                     return;
-                } else if (rows.length < 1){
-                    res.status(200).json("Card " + req.body.id_card + " Nao existe")
+                } else if (rows = vacio || []){
+                    res.status(200).json("Card ID " + req.body.id_card + " Não existe")
                 } else
-                    res.status(200).json("Card " + req.body.id_card + " excluida com sucesso")})
+                    res.status(200).json("Card ID " + req.body.id_card + " excluida com sucesso")})
 });
   
 app.listen(3001, () => {
