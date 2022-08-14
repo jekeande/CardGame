@@ -193,9 +193,10 @@ app.get("/game", (req, res, next) => {
 });
 
 app.get("/games", (req, res, next) => {
-    db.all(`SELECT COUNT(playeronecard) AS playerOne,
-	        COUNT(DISTINCT playeronecard) AS playerTwo
-            FROM game WHERE playeronecard=winner`,
+    db.all(`SELECT
+        COUNT(CASE when winner = playeronecard then playeronecard end) as playerOne,
+        COUNT(CASE when winner = playertwocard then playertwocard end) As playerTwo
+        FROM game`,
             [], function(err, rows){
                 if (err) {
                     res.status(400).json({ "error": err.message });
