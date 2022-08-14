@@ -21,7 +21,7 @@ GET http://localhost:3001/card HTTP/1.1
 Content-Type: application/json
 
   {
-    "id_card": 23
+    "id_card": 3
   }
 
 ###
@@ -36,7 +36,7 @@ Content-Type: application/json
     "special_attack": 65,
     "special_defense": 65,
     "speed": 50,
-    "id_card": 12
+    "id_card": 27
   }
 
 ###
@@ -44,7 +44,7 @@ DELETE http://localhost:3001/card HTTP/1.1
 Content-Type: application/json
 
   {
-    "id_card":23
+    "id_card":26
   }
 
 ###
@@ -53,10 +53,14 @@ Content-Type: application/json
 
 {
   "playerOneCard": 1,
-  "playerTwoCard": 24
+  "playerTwoCard": 3
 }
 
 ###
 GET http://localhost:3001/games HTTP/1.1
+Content-Type: application/json
+
+###
+GET http://localhost:3001/gamesAll HTTP/1.1
 Content-Type: application/json
 
