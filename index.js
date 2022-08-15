@@ -15,7 +15,7 @@ const db = new sqlite3.Database(
     }
 );
 
-app.post("/card",(req, res, next) => {
+app.post("/card", (req, res, next) => {
     db.run(`INSERT INTO card (name_card,hp,attack,defense,special_attack,special_defense,speed)
         VALUES (?,?,?,?,?,?,?)`,
         [   req.body.name,
@@ -69,7 +69,7 @@ app.get("/card", (req, res, next) => {
     );
 });
  
-app.put("/card",(req, res, next) => {
+app.put("/card", (req, res, next) => {
     db.run(`UPDATE card SET name_card=?, hp=?, attack=?, defense=?, special_attack=?, special_defense=?, speed=? 
         WHERE id_card=?`,
         [
@@ -204,7 +204,7 @@ app.get("/game", (req, res, next) => {
     );
 });
 
-app.get("/games", (req, res, next) => {
+app.get("/winners", (req, res, next) => {
     db.all(`SELECT
         COUNT(CASE when winner = playeronecard then playeronecard end) as playerOne,
         COUNT(CASE when winner = playertwocard then playertwocard end) As playerTwo
@@ -222,7 +222,7 @@ app.get("/games", (req, res, next) => {
     );
 });
 
-app.get("/gamesAll", (req, res, next) => {
+app.get("/games", (req, res, next) => {
     db.all(`SELECT * FROM game`, 
         [], function(err, rows){
             if (err) {
