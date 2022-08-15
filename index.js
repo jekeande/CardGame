@@ -195,8 +195,8 @@ app.get("/game", (req, res, next) => {
                         }
                     }
                 );
-            } else if (rows[0].one && rows[0].two === null){
-                res.status(200).json("empate");
+            } else if (rows[0].one === rows[0].two){
+                res.status(200).json("Empate");
             } else {
                 res.status(200).json("Card não identificada");
             }

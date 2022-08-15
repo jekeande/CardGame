@@ -36,7 +36,7 @@ Content-Type: application/json
     "special_attack": 65,
     "special_defense": 65,
     "speed": 50,
-    "id_card": 1
+    "id_card": 2
   }
 
 ###
@@ -52,8 +52,8 @@ GET http://localhost:3001/game HTTP/1.1
 Content-Type: application/json
 
 {
-  "playerOneCard": 1,
-  "playerTwoCard": 3
+  "playerOneCard": 2,
+  "playerTwoCard": 4
 }
 
 ###
