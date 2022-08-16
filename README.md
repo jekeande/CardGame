@@ -4,7 +4,7 @@ Desafio SomoS
 
 Linguagem: JavaScript
 
-Framework: NodeJs
+Framework: Express
 
 Descrição
 
